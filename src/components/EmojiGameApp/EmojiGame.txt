@@ -1,0 +1,58 @@
+emojiApp
+    
+    v-1 :-
+    
+        header ----> fixed (doesnt change with the changes in the app) (v1 & v2)
+                
+                score
+                    -- in v1 everytime it should be started with 0
+                    -- score should be updated with 1 point every time when user clicks on right emojic
+                    -- it should be reset to 0 when user clicks the "play again button"
+                topScore
+                        refresh -> start with 0;
+                        it should be updated a highest score every time after click on "play again button in v2"
+                Theme
+                        light
+                        dark
+                        
+                
+        emojiesGrid ---> not fixed (changes evertyme when event occur) --> have o dhuffle every time
+        
+                -- 12 emojies 3 in each row 
+                -- when user clicks on wrong emoji it should navigate to v2
+                
+        how to play ----> fixed (doesnt change with the changes in the app)  (v1 & v2)
+        
+                text should be displayed every time :- { points by clicking on an image but don't click on any image more than once!}
+        
+        
+    v-2 :- when onClick event occured on emojies v2 should be displayed   
+            
+            
+        header ----> fixed (doesnt change with the changes in the app) (v1 & v2)
+                
+                score 
+                    -- it should display updated score from v1
+                topScore
+                    -- compare with the prev top score and update the top score in header
+                darkTheme
+                    -- light
+                    -- dark
+    
+        scoreCard :-
+        
+                score 
+                    -- it shoud display every game score from v1
+                win or lose
+                    -- You Lose! --> if score < 12
+                    -- You won  ---> if score === 12
+                playAgain button
+                    -- when user clicks on this button it should navigate to emoji game page with score 0;
+                
+            
+        how to play -> fixed in v1 and v2
+                
+    
+ card resp --> 
+ 
+         shuffiling the existing list everytime.

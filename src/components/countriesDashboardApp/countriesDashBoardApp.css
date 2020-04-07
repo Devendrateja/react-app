@@ -1,0 +1,172 @@
+.country-dashboard-app{
+    display:flex;
+    flex-direction:column;
+}
+.country-cards{
+    display:flex;
+    width:100vw;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.country-flag{
+    width:100%;
+    height:50%;
+    /*margin-top:-22px;*/
+}
+.card{
+    display:flex;
+    flex-direction:column;
+    width:20%;
+    height:300px;
+    margin:20px;
+    justify-content:space-around;
+    margin-top:75px;
+    padding-top:0px;
+}
+
+
+.theme-button{
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+}
+.Light{
+    background-color:#fff;
+    color:black;
+}
+
+.Dark{
+    background-color:#2b3945;
+    color:whitesmoke;
+}
+.filter-bar{
+    display:flex;
+    justify-content:space-between;
+    /*box-shadow:0px 5px 5px lightgrey inset;*/
+    padding:30px;
+}
+.search-country-name{
+    border-radius:5px;
+}
+.form{
+    display:flex;
+    flex-direction:row;
+    box-shadow:2px 2px 2px lightgrey;
+}
+.search-icon{
+    padding:12px;
+    padding-right:0px;
+}
+
+.back-button-v2{
+    padding:5px;
+    display:flex;
+    align-items:center;
+}
+
+
+
+.redirected-page{
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+
+}
+
+.coutry-card-v2{
+    display:flex;
+    width:100%;
+    flex-direction:row;
+}
+.country-flag-v2{
+    width:35%;
+    padding:20px;
+    height:60vh;
+    
+}
+
+.country-details{
+    display:flex;
+    flex-direction:column;
+    flex-grow:1;
+    width:65%;
+    padding:20px;
+    justify-content:center;
+}
+
+.country-details-eachpart{
+    padding:10px;
+}
+
+.country-details-part-2{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.inside-country-details-part-2{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.inside-part-2{
+    padding-bottom:10px;
+}
+.country-details-part-3{
+    display:flex;
+    flex-direction:column;
+    margin-top:-20px;
+    width:100%;
+}
+
+.inside-part-3{
+    padding-bottom: 10px;
+    
+}
+.country-border-details{
+    display:flex;
+    margin-top:10px;
+    flex-wrap:wrap;
+    
+}
+
+.country-border-Light{
+    padding:5px;
+    background-color:whitesmoke;
+    margin:10px;
+}
+
+.country-border-Dark{
+    padding:5px;
+    background-color:#708090;
+    margin:10px;
+}
+
+.header-bar{
+    display:flex;
+    font-size:20px;
+    padding:30px;
+    border-bottom:solid  2px lightgrey;
+    justify-content:space-between;
+    align-items:center;
+    /*box-shadow:20px 20px 20px 10px black;*/
+    
+    
+}
+
+.back-button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:row;
+    padding-left:35px;
+    
+}
+
+.country-card-list{
+    display:flex;
+    flex-wrap:wrap;
+    height:100vh;
+    justify-content:center;
+}

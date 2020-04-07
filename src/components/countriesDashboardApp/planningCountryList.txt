@@ -1,0 +1,157 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////exact plan///////////
+
+CountriesDashboardApp
+            
+            methods:-
+                
+                componentDidMount(fetch data here)
+                getCountries(method)
+                getRegionOption8i
+                filterCountriesByRegion
+                filterCountriesByName
+                onChangeTheme
+                
+            state variables :-
+            
+                countries
+                selectedTheme
+                
+            static class variables:-
+            
+                themeOptions :-
+                    
+                    light
+                    dark
+                    
+Header     
+            
+            methods:-
+                    
+                onChangeTheme 
+                
+            props:-
+            
+                onChangeTheme (method from CountriesDashboardApp as a prop)
+                selectedTheme (state from CountriesDashboardApp as a prop)
+                
+
+filterBar
+            props:-
+                
+                filterCountriesByRegion (method from CountriesDashboardApp as a prop)
+                filterCountriesByName   (method from CountriesDashboardApp as a prop)
+            
+             render:-
+                
+                searchCountry components
+                searchRegion components
+                
+searchCountry 
+            
+            props :-
+                
+                    filterCountriesByName 
+                    
+            state variables :-
+            
+                    searchTxt
+                    
+            methods :-
+            
+              onChangeSearchText
+              onSubmitSearchText
+              
+
+
+                
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. divide components
+
+        countryDashboard App
+            header
+                1.mode
+            filterCountryList
+                2.search by country name 
+                3.search by region
+                
+            createCountryCard
+                4.countryCards
+                
+                
+                
+1. props :- 
+                light style
+                dark style
+                
+                
+   methods :- 
+   
+                handleChange
+                
+   state :-
+                mode  - (light or dark themes)
+            
+
+2. props :- 
+                countryList
+                
+   methods :- 
+                handleChangeInSearchBar
+                handleSubmit
+                filterCountryList
+                
+   state :- 
+                updateCountryList 
+                
+                
+3. props :- 
+                searchtxt
+                countryList
+                
+   methods :- 
+                
+                handleChangeindropdown
+                filterCountryList
+                
+   state :- 
+                updateCountryList 
+                
+4. props :-
+                searchtxt
+                countryList
+  methods :-
+                createCards
+                displsyCardswitcontent
+    
+    
+    

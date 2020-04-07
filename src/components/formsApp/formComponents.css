@@ -1,0 +1,41 @@
+
+.form{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+}
+
+.greetings-input {
+    border :solid 2px black;
+    margin:10px;
+}
+
+.choice-button{
+    font-size:15px;
+    border-radius:0px;
+    border:solid black 2px;
+    margin:10px;
+}
+
+.desserts-list{
+    display:flex;
+    flex-direction:column;
+}
+.select-options{
+    font-size:15px;
+}
+.disable-button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+/*{*/
+/*    display:flex;*/
+/*    justify-content:center;*/
+/*    align-items:flex-start;*/
+/*    flex-direction:column;*/
+/*}*/

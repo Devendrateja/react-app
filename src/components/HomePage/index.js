@@ -1,27 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../logo.svg";
+import "tailwindcss"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Link to="/page-1">Page 1</Link>
-      </header>
-    </div>
+    <div>
+        <nav>
+          <div>
+              <Link to="/">Projects</Link>
+            </div>
+            <div>
+              <Link to="/carApp">Car App</Link>
+            </div>
+            <div>
+              <Link to="/todosApp">Todos App</Link>
+            </div>
+            <div>
+              <Link to="/formComponents">Form Components</Link>
+            </div>
+            <div>
+              <Link to="/countriesDashboardApp">Countries Dashboard App</Link>
+            </div>
+            <div>
+              <Link to="/emojiGameApp">Emoji Game Application</Link>
+            </div>
+        </nav>
+        </div>
   );
 }
 
 export default App;
+
+

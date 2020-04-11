@@ -4,8 +4,10 @@ import CountryCard from "./countryCard.js"
 import tw  from "tailwind.macro";
 import styled from '@emotion/styled';
 import { jsx,css } from '@emotion/core'
+import themeStore from "../../stores/ThemeStore"
+import {observer} from 'mobx-react'
 
-
+@observer
 class Countries extends React.Component{
     
     render (){
@@ -23,7 +25,7 @@ class Countries extends React.Component{
             color: 'whitesmoke'
         })
         
-        const color = (selectedTheme === "Light mode") ? light : dark
+       const color = (themeStore.selectedTheme === "Light mode" ) ? light : dark
         
         
         return (

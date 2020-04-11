@@ -11,7 +11,8 @@ class EmojiGame extends React.Component{
             emojies:null,
             score:0,
             topScore : 0,
-            gameStat : 'playing'
+            gameStat : 'playing',
+            theme : 'Light'
         }
     }
     
@@ -76,6 +77,12 @@ class EmojiGame extends React.Component{
         }
         
         this.setState({emojies : array})
+        
+    }
+    onChangeTheme = () => {
+        
+        // const Theme = this.state.the
+        
         
     }
 

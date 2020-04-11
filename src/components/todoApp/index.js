@@ -151,7 +151,7 @@ class TodoList extends React.Component{
            <div className="footer-element-all" onClick={() =>this.filterComponent("All")}>All</div>
            <div className="footer-element-active" onClick={() => this.filterComponent("Active")}>Active</div>
            <div className="footer-element-completed" onClick={() => this.filterComponent("Completed")}>Completed</div>
-           <div className="footer-element-clear-completed" onClick={() => this.filterComponent("Clear Completed")}>Clear Completed</div>
+           <div className="footer-element-clear-completed" /*onClick={() => this.filterComponent("Clear Completed")}*/>Clear Completed</div>
            </div>
            </div>
            )

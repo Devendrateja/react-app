@@ -8,18 +8,18 @@ import {WinOrLoseContainer,PlayAgainButton} from "./style.js"
 
 import React from 'react'
 
-
-
 class WinOrLose extends React.Component{
     
     render(){
         const {score,onClickPlayAgain,gameStat} = this.props
         return (
+        <div className="h-screen w-screen">
            <WinOrLoseContainer>
             <div className="m-1">{score}</div>
             <div className="m-1">{gameStat}</div>
-            <PlayAgainButton className="m-1" onClick={onClickPlayAgain}>Play Again</PlayAgainButton>
+            <PlayAgainButton onClick={onClickPlayAgain}>Play Again</PlayAgainButton>
             </WinOrLoseContainer>
+        </div>
             )
     }
 }

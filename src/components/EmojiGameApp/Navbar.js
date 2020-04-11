@@ -13,6 +13,9 @@ import {NavbarComponent} from "./style.js"
 
 class Navbar extends React.Component{
     
+    
+    
+    
     render(){
         
         const { score,topScore } = this.props

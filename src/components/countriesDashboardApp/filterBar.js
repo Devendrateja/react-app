@@ -3,7 +3,10 @@ import { jsx, css } from '@emotion/core';
 import React from "react"
 import {SearchCountry} from "./searchByText.js"
 import {SelectRegion} from "./selectRegion.js"
+import themeStore from "../../stores/ThemeStore"
+import {observer} from 'mobx-react'
 
+@observer
 class CountriesFilterBar extends React.Component{
     
     render (props){
@@ -22,7 +25,7 @@ class CountriesFilterBar extends React.Component{
             color: 'whitesmoke'
         })
         
-        const color = (selectedTheme === "Light mode") ? light : dark
+       const color = (themeStore.selectedTheme === "Light mode" ) ? light : dark
         
         return (
             <div className="flex items-center justify-between p-8" css={color}>

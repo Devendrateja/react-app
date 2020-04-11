@@ -5,7 +5,7 @@ import Page1 from "./components/Page1";
 import "./App.css";
 
 
-
+import CounterPage from "./components/CounterPage/index.js"
 import {CarsList} from "./components/CarsList";
 import {Todo} from "./components/todoApp/index.js";
 import {FormComponents} from "./components/formsApp/formComponents.js"
@@ -13,26 +13,37 @@ import CountriesDashhBoardApp from "./components/countriesDashboardApp/countries
 import CountryDetails from "./components/countriesDashboardApp/redirectToCountryDetails.js"
 import Header from "./components/countriesDashboardApp/header.js"
 import EmojiGame from "./components/EmojiGameApp/EmojiGame.js"
+import Counter from "./components/CounterPage-2/CounterPage-2.js"
+//import TodoApp from "./components/TodoApp-mobx/TodoApp.js"
+import TodoApp from "./components/TodoApp-mobx-2/TodoApp.js"
+import Event from "./components/EventsApp/index.js"
+import ProviderExample from "./components/Provider/Provider.js"
 
 
-export default class App extends React.Component {
+import {observable} from 'mobx';
+// import {configure} from "mobx";
+import themeStore from "./stores/ThemeStore/"
+
+
+
+// configure ({ enforceActions:true })
+
+
+
+// const config = {
   
-  constructor(props){
-    super(props);
-    this.state = {
-      selectedTheme : 'Light mode'
-    }
-  }
-  
-  onChangeTheme = () => {
-        let theme = (this.state.selectedTheme === 'Light mode') ? 'Dark mode' : 'Light mode'
-        this.setState({selectedTheme : theme})
-  }
+// }
+
+
+class App extends React.Component {
   
   render(){
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
+        <Route path="/counter-page">
+          <CounterPage />
+        </Route>
         <Route exact path="/page-1">
           <Page1 />
         </Route>
@@ -46,15 +57,30 @@ export default class App extends React.Component {
             <FormComponents />
         </Route>
         <Route path="/countriesDashboardApp">
-            <Header onChangeTheme={this.onChangeTheme} selectedTheme={this.state.selectedTheme}/>
-            <CountriesDashhBoardApp onChangeTheme={this.onChangeTheme} selectedTheme={this.state.selectedTheme}/>
+            <Header onChangeTheme={themeStore.updateTheme} selectedTheme={themeStore.getCurrentTheme()}/>
+            <CountriesDashhBoardApp onChangeTheme={themeStore.updateTheme} selectedTheme={themeStore.getCurrentTheme()}/>
         </Route>
         <Route exact path="/redirectToCountryDetails/:countryCode">
-            <Header onChangeTheme={this.onChangeTheme} selectedTheme={this.state.selectedTheme}/>
-            <CountryDetails selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme}/>
+            <Header onChangeTheme={themeStore.updateTheme} selectedTheme={themeStore.getCurrentTheme()}/>
+            <CountryDetails selectedTheme={themeStore.getCurrentTheme()} onChangeTheme={themeStore.updateTheme}/>
         </Route>
         <Route exact path="/emojiGameApp">
             <EmojiGame />
+        </Route>
+        <Route exact path="/CounterPage-2">
+            <Counter />
+        </Route>
+        {/*<Route exact path="/todoapp-mobx">
+            <TodoApp />
+        </Route> */}
+        <Route exact path="/todoapp-mobx-2">
+            <TodoApp />
+        </Route>
+         <Route exact path="/events">
+            <Event />
+        </Route>
+        <Route exact path="/provider">
+            <ProviderExample />
         </Route>
         <Route path="/">
           <HomePage />
@@ -64,3 +90,11 @@ export default class App extends React.Component {
   );
   }
 };
+
+
+
+
+export default (App);
+
+
+

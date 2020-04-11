@@ -7,8 +7,11 @@ import {withRouter} from 'react-router-dom'
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 import { jsx,css } from '@emotion/core'
+import themeStore from "../../stores/ThemeStore"
+import {observer} from 'mobx-react'
 
 
+@observer
 class CountryDetails extends React.Component{
     constructor(props){
         super(props);
@@ -73,12 +76,12 @@ class CountryDetails extends React.Component{
             color: 'black'
         })
         
-        const dark = ({
+        const dark = css({
             backgroundColor: '#2b3945',
             color: 'whitesmoke'
         })
         
-        const color = (selectedTheme === "Light mode") ? light : dark
+        const color = (themeStore.selectedTheme === "Light mode" ) ? light : dark
 
        if(country !== null){
            

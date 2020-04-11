@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../logo.svg";
-import "tailwindcss"
 
 function App() {
   return (
@@ -24,6 +23,21 @@ function App() {
             </div>
             <div>
               <Link to="/emojiGameApp">Emoji Game Application</Link>
+            </div>
+            <div>
+              <Link to="/CounterPage-2">Counter App</Link>
+            </div>
+            <div>
+              <Link to="/todoapp-mobx">Todo Application with MobX</Link>
+            </div>
+            <div>
+              <Link to="/todoapp-mobx-2">Todo Application with MobX Store and Model</Link>
+            </div>
+            <div>
+              <Link to="/events">Events App</Link>
+            </div>
+            <div>
+              <Link to="/provider">provider App</Link>
             </div>
         </nav>
         </div>

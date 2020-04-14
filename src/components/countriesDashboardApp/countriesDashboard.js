@@ -1,12 +1,12 @@
 /*global fetch*/
 import React from "react"
-import {CountriesFilterBar} from "./filterBar.js"
-import {Countries} from "./countries.js";
+
+import {CountriesFilterBar} from "./filterBar"
+import {Countries} from "./countries";
 //import "./countriesDashBoardApp.css"
 
-
 class CountriesDashhBoardApp extends React.Component {
-    
+
     constructor(props){
         super(props);
         this.state = {

@@ -1,16 +1,14 @@
-
-
-
 import tw  from "tailwind.macro";
-
 import React from "react"
-import eventStore from "../../stores/EventStore/EventStore.js"
-import AddEvent from "./AddEvent.js"
-import EventList from "./EventList.js"
-import {Container} from "./EventStyles.js"
-
 import {observable,action,computed} from "mobx"
 import {observer} from "mobx-react"
+
+import eventStore from "../../stores/EventStore/EventStore"
+
+import AddEvent from "./AddEvent"
+import EventList from "./EventList"
+
+
 
 
 @observer

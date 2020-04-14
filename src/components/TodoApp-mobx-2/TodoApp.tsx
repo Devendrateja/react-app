@@ -1,14 +1,14 @@
 import React from "react"
-import AddTodo from "./AddTodo.js"
-import TodoList from "./TodoList.js"
-import TodoFooter from "./TodoFooter.js"
-
-
-import Todo from "../../stores/models/Todo.js"
-import todoStores from "../../stores/TodoStores/TodoStores.js"
 
 import {observable,action,reaction} from 'mobx';
 import {observer} from 'mobx-react';
+
+//import Todo from "../../stores/models/Todo"
+import todoStores from "../../stores/TodoStores/TodoStores"
+
+import AddTodo from "./AddTodo"
+import TodoList from "./TodoList"
+import TodoFooter from "./TodoFooter"
 
 
 @observer

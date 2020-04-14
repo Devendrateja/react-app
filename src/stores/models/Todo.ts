@@ -1,10 +1,11 @@
 import {observable,action} from 'mobx';
-import {observer} from 'mobx-react';
 
 
 class Todo {
-    @observable title;
-    @observable isCompleted;
+    id : string;
+    @observable title: string;
+    @observable isCompleted :boolean;
+
     constructor(title,isChecked){
         this.id = Math.random().toString();
         this.title = title;
@@ -12,13 +13,13 @@ class Todo {
     }
 
     @action.bound
-    onUpdateTodoTitle(title){
+    onUpdateTodoTitle(title:string){
         this.title = title;
     }
     
     
     @action.bound
-    onCompleteTodo(resultChecked){
+    onCompleteTodo(resultChecked:boolean){
         this.isCompleted = resultChecked
     }
     

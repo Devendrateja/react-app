@@ -1,15 +1,15 @@
 import {observer} from "mobx-react"
 import {observable,action,computed} from "mobx"
-import Event from "../models/EventModel.js"
 
+import EventModel from "../models/EventModel"
 
 
 class EventStore {
-    @observable events = [];
+    @observable events : Array<EventModel> = [];
     
     @action.bound
-    onAddEvent(eventName,eventLocation){
-        const newEvent = new Event(eventName,eventLocation)
+    onAddEvent(eventName:string,eventLocation:string){
+        const newEvent  = new EventModel(eventName,eventLocation)
         this.events.push(newEvent)
     }
     

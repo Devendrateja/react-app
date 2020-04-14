@@ -1,10 +1,14 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import React from "react"
-import {SearchCountry} from "./searchByText.js"
-import {SelectRegion} from "./selectRegion.js"
-import themeStore from "../../stores/ThemeStore"
 import {observer} from 'mobx-react'
+
+import themeStore from "../../stores/ThemeStore"
+
+import {SearchCountry} from "./searchByText"
+import {SelectRegion} from "./selectRegion"
+
+
 
 @observer
 class CountriesFilterBar extends React.Component{

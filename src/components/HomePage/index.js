@@ -12,9 +12,7 @@ function App() {
             <div>
               <Link to="/carApp">Car App</Link>
             </div>
-            <div>
-              <Link to="/todosApp">Todos App</Link>
-            </div>
+
             <div>
               <Link to="/formComponents">Form Components</Link>
             </div>
@@ -23,12 +21,6 @@ function App() {
             </div>
             <div>
               <Link to="/emojiGameApp">Emoji Game Application</Link>
-            </div>
-            <div>
-              <Link to="/CounterPage-2">Counter App</Link>
-            </div>
-            <div>
-              <Link to="/todoapp-mobx">Todo Application with MobX</Link>
             </div>
             <div>
               <Link to="/todoapp-mobx-2">Todo Application with MobX Store and Model</Link>

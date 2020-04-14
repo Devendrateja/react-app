@@ -27,12 +27,16 @@ class Todo extends React.Component{
       todo.onUpdateTodoTitle(event.target.value)
     }
     
+    handleOnSubmit = (event) => {
+        event.preventDefault()
+    }
+    
     
     render(){
         const {todo} = this.props
         
         return(
-            <form key={todo.id} onSubmit={()=>event.preventDefault()}>
+            <form key={todo.id} onSubmit={this.handleOnSubmit}>
                 <input name={todo.id} type="checkbox" defaultChecked={todo.isCompleted}  onChange={this.onCompleteTodo}/>
                 <input onChange={this.onUpdateTodoTitle} defaultValue={todo.title} disabled={todo.isCompleted}/>
                 <input name={todo.id} onClick={this.onRemoveTodo} type="button" defaultValue="x"/>

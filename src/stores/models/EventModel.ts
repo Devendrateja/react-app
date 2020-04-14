@@ -1,21 +1,22 @@
-import {observer} from "mobx-react"
 import {observable} from "mobx"
 
 
-class Event {
-    @observable eventName
-    @observable eventLocation
+class EventModel {
+    id : string
+    @observable eventName: string
+    @observable eventLocation:string
+    
     constructor(eventName,eventLocation){
-        this.id = Math.random();
+        this.id = Math.random().toString();
         this.eventName = eventName;
         this.eventLocation = eventLocation;
     }
     
-    onUpdateEventDetails = (eventName,eventLocation) => {
+    onUpdateEventDetails(eventName:string,eventLocation:string){
         this.eventName = eventName;
         this.eventLocation = eventLocation;
     }
 }
 
 
-export default Event;
+export default EventModel;

@@ -1,14 +1,21 @@
 import React from "react"
-
 import tw  from "tailwind.macro";
-
 import {observable,action,computed} from "mobx"
 import {observer} from "mobx-react"
 
+import EventModel from "../../stores/models/EventModel"
+
+
+type EventProps = {
+    onAddEvent : Function
+    event : EventModel
+    onDeleteEvent : Function
+    
+}
 
 
 @observer
-class Event extends React.Component{
+class Event extends React.Component<EventProps>{
     @observable isEditEvent;
     @observable eventName;
     @observable eventLocation ;
@@ -46,6 +53,10 @@ class Event extends React.Component{
         const {onDeleteEvent,event} = this.props
         onDeleteEvent(event);
     }
+    
+    onHandlesubmit = (event) => {
+        event.preventDefault()
+    }
 
     
     
@@ -70,7 +81,7 @@ class Event extends React.Component{
             {
                 this.isEditEvent && 
                 <div>
-                    <form onSubmit={() => event.preventDefault()}>
+                    <form onSubmit={this.onHandlesubmit}>
                         <input value={this.eventName} onChange={this.onChangeEventName} placeholder="Event Name"/>
                         <input value={this.eventLocation} onChange={this.onChangeLocation} placeholder="Event Location"/>
                     </form>

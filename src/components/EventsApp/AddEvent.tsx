@@ -4,9 +4,16 @@ import tw  from "tailwind.macro";
 import {observable,action,computed} from "mobx"
 import {observer} from "mobx-react"
 
+type AddEventProps = {
+    onAddEvent : Function
+    
+
+}
+
+
 
 @observer
-class AddEvent extends React.Component{
+class AddEvent extends React.Component<AddEventProps>{
     @observable eventName = ''
     @observable eventLocation = ''
     
@@ -35,11 +42,17 @@ class AddEvent extends React.Component{
     }
     
     
+    @action.bound
+    handleSubmit(event){
+        event.preventDefault()
+    }
+    
+    
     render(){
         return (
         
             <div className="flex flex-row justify-around items-center border-solid border-indigo-900 border w-10/12">
-                <form className="flex flex-col p-4" onSubmit={() => event.preventDefault()}>
+                <form className="flex flex-col p-4" onSubmit={this.handleSubmit}>
                     <input className="border-solid border border-green-300 m-1" value={this.eventName} onChange={this.onChangeEventName} placeholder="Event Name"/>
                     <input className="border-solid border border-green-300 m-1" value={this.eventLocation} onChange={this.onChangeLocation} placeholder="Event Location"/>
                 </form>

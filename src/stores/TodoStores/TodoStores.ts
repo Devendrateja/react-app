@@ -1,12 +1,11 @@
-import Todo from "../models/Todo.js"
-
 import {observable,action,computed} from 'mobx';
-import {observer} from 'mobx-react'
+
+import Todo from "../models/Todo"
 
 
 class TodoStores {
-    @observable todos = [];
-    @observable selectedFilter = 'All';
+    @observable todos : Array<Todo> = [];
+    @observable selectedFilter : string = 'All';
 
     
     
@@ -51,7 +50,7 @@ class TodoStores {
     
     @computed
     get filterTodos(){
-        let filteredTodo = []
+        let filteredTodo :Array<Todo> = []
         switch(this.selectedFilter){
             case('All'):
                 filteredTodo = [...this.todos];

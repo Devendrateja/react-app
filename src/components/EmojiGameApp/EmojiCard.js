@@ -3,7 +3,6 @@ import { jsx, css } from '@emotion/core';
 import tw  from "tailwind.macro";
 import styled from '@emotion/styled';
 
-
 import React from "react"
 import {EmojiCardEl} from "./style.js"
 

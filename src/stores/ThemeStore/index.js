@@ -1,13 +1,13 @@
 import {observable,action} from 'mobx';
 
 class ThemeStore{
-    @observable selectedTheme : string
+    @observable selectedTheme 
     
     constructor(){
         this.selectedTheme = "Light mode"
     }
     @action.bound
-    getCurrentTheme():string {
+    getCurrentTheme(){
         return this.selectedTheme
         
     }
@@ -23,8 +23,6 @@ class ThemeStore{
         }
     }
 }
-
-
 
 const themeStore = new ThemeStore()
 

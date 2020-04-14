@@ -6,16 +6,8 @@ import {observer} from "mobx-react"
 import EventModel from "../../stores/models/EventModel"
 
 
-type EventProps = {
-    onAddEvent : Function
-    event : EventModel
-    onDeleteEvent : Function
-    
-}
-
-
 @observer
-class Event extends React.Component<EventProps>{
+class Event extends React.Component{
     @observable isEditEvent;
     @observable eventName;
     @observable eventLocation ;
@@ -58,8 +50,6 @@ class Event extends React.Component<EventProps>{
         event.preventDefault()
     }
 
-    
-    
     
     render(){
         const {event} = this.props

@@ -5,10 +5,10 @@ import EventModel from "../models/EventModel"
 
 
 class EventStore {
-    @observable events : Array<EventModel> = [];
+    @observable events = [];
     
     @action.bound
-    onAddEvent(eventName:string,eventLocation:string){
+    onAddEvent(eventName,eventLocation){
         const newEvent  = new EventModel(eventName,eventLocation)
         this.events.push(newEvent)
     }

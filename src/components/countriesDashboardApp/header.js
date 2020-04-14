@@ -11,13 +11,9 @@ import { jsx, css } from '@emotion/core';
 
 import themeStore from "../../stores/ThemeStore"
 
-type HeaderProps = {
-    onChangeTheme : Function
-}
-
 
 @observer
-class Header extends React.Component<HeaderProps>{
+class Header extends React.Component{
     render(){
         // const {selectedTheme}  = this.props;
          const {onChangeTheme} = this.props;

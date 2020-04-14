@@ -2,9 +2,9 @@ import {observable} from "mobx"
 
 
 class EventModel {
-    id : string
-    @observable eventName: string
-    @observable eventLocation:string
+    id
+    @observable eventName
+    @observable eventLocation
     
     constructor(eventName,eventLocation){
         this.id = Math.random().toString();
@@ -12,11 +12,10 @@ class EventModel {
         this.eventLocation = eventLocation;
     }
     
-    onUpdateEventDetails(eventName:string,eventLocation:string){
+    onUpdateEventDetails(eventName,eventLocation){
         this.eventName = eventName;
         this.eventLocation = eventLocation;
     }
 }
-
 
 export default EventModel;

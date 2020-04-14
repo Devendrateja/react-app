@@ -4,8 +4,8 @@ import Todo from "../models/Todo"
 
 
 class TodoStores {
-    @observable todos : Array<Todo> = [];
-    @observable selectedFilter : string = 'All';
+    @observable todos = [];
+    @observable selectedFilter = 'All';
 
     
     
@@ -50,7 +50,7 @@ class TodoStores {
     
     @computed
     get filterTodos(){
-        let filteredTodo :Array<Todo> = []
+        let filteredTodo  = []
         switch(this.selectedFilter){
             case('All'):
                 filteredTodo = [...this.todos];

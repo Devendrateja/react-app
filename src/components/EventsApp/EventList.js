@@ -4,14 +4,7 @@ import Event from "./Event"
 import EventModel from "../../stores/models/EventModel"
 
 
-type EventListProps = {
-    onAddEvent : Function
-    events :  Array<EventModel>
-    onDeleteEvent : Function
-    noOfEvents : number
-}
-
-class EventList extends React.Component<EventListProps>{
+class EventList extends React.Component{
     
     render(){
         const {onAddEvent, events, onDeleteEvent, noOfEvents} = this.props
@@ -28,7 +21,5 @@ class EventList extends React.Component<EventListProps>{
             )
     }
 }
-
-
 
 export default EventList;

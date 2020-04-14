@@ -31,8 +31,3 @@ class CountryCard extends React.Component{
 
 
 export default withRouter(CountryCard);
-
-// className=" h-64 
-
-
-//

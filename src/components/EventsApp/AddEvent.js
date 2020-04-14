@@ -4,16 +4,8 @@ import tw  from "tailwind.macro";
 import {observable,action,computed} from "mobx"
 import {observer} from "mobx-react"
 
-type AddEventProps = {
-    onAddEvent : Function
-    
-
-}
-
-
-
 @observer
-class AddEvent extends React.Component<AddEventProps>{
+class AddEvent extends React.Component{
     @observable eventName = ''
     @observable eventLocation = ''
     

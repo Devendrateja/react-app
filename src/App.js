@@ -27,19 +27,6 @@ import themeStore from "./stores/ThemeStore/"
 
 
 
-// configure ({ enforceActions:true })
-
-
-
-// const config = {
-  
-// }
-
-// type CountryProps = {
-//   updateTheme : Functionc
-
-// }
-
 
 class App extends React.Component {
   

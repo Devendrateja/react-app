@@ -10,13 +10,8 @@ import themeStore from "../../stores/ThemeStore"
 
 import CountryCard from "./countryCard"
 
-type CountriesProps = {
-    
-    countriesList :Function;
-}
-
 @observer
-class Countries extends React.Component <CountriesProps> {
+class Countries extends React.Component{
     
     render (){
         

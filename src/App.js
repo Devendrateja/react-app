@@ -19,7 +19,7 @@ import EmojiGame from "./components/EmojiGameApp/EmojiGame"
 import TodoApp from "./components/TodoApp-mobx-2/TodoApp"
 import Event from "./components/EventsApp/index"
 import ProviderExample from "./components/Provider/Provider"
-
+import GridMemoryGame from "./components/GridMemoryGame/index"
 
 import {observable} from 'mobx';
 // import {configure} from "mobx";
@@ -67,6 +67,9 @@ class App extends React.Component {
         </Route>
         <Route exact path="/provider">
             <ProviderExample />
+        </Route>
+        <Route exact path="/grid-game">
+            <GridMemoryGame />
         </Route>
         <Route path="/">
           <HomePage />

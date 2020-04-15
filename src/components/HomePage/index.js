@@ -31,6 +31,9 @@ function App() {
             <div>
               <Link to="/provider">provider App</Link>
             </div>
+            <div>
+              <Link to="/grid-game">Grid Memory Game</Link>
+            </div>
         </nav>
         </div>
   );

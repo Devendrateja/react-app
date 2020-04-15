@@ -1,4 +1,3 @@
-import {observer} from "mobx-react"
 import {observable,action,computed} from "mobx"
 
 import EventModel from "../models/EventModel"

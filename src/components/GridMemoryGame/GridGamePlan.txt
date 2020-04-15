@@ -1,0 +1,161 @@
+step - 1:-  divide components
+
+        * GridMemoryGame
+            
+            - DisplayTopLevel
+                * display highest reached level
+                
+                
+            - stausBar
+                * level
+                    - display level position each and every time when they are reached new level
+                    
+                * mode
+                    -  ligh | dark
+                    
+            - grid
+                * cells
+                    - displays green color if they selected randomly based on level to memorize
+                    - displays no color if they are not randomly selected
+                    - displays red color if user clicks non selected celll.
+                    
+                - if level 7 completed show congratulations display.
+                
+                
+                
+                
+                
+
+
+game Model : -
+
+            Picked - boolean - true/false
+            
+        constructor(picked) :-
+        
+                    id - randomly generated number
+                    randomlyPickedCell - picked
+                    initialColor - if Picked --> green else grey
+                    finalColor - after Timeout --> grey
+                    onRightGuess - green
+                    onWrongGuess - red
+                    disabaled
+                            - true - before timeOut
+                            - false - after Timeout and before clicked
+                            - true  - if user clicked once.
+                            
+                            
+        methods : -
+        
+            updateColors(color)
+            disableCell(true/false)
+                            
+game store : -
+
+        arrayofcells = []
+        
+        
+        
+        methods : -
+        
+            UdateColorsWhenTimeout => call updatecolors in model (grey)
+            onWrongGuessUpdateColor => call updatecolors in model (red)
+            disableCell(true/false)
+            updatecells()
+                    
+
+
+
+
+
+
+
+
+
+
+
+Application state : -
+
+        * GridMemoryGame
+            
+            state : - 
+                        topLeve
+                        levelPosition
+                        selecedTheme
+            
+            props : -
+                        store/model
+                        
+        * DisplayTopLevel
+            state :-
+                        previous highest level
+                        
+            props :-
+                        topLevel
+                        levelPosition
+                        selectedTheme
+                        
+        * stausBar
+            state :-
+            
+            props :-
+                        levelPosition
+                        
+        *grid
+            state :-
+                        gridnumber = number (initially 3 based on levelPosition)
+                        randomlyPickedCells = []
+                        numberOfCells = []
+                        timeToSetTimout = number(gridnumber) in ms (0000) 
+                        timeToSetInterval = number(gridnumber * 2) in ms (0000)
+                        
+                        onWrongGuessUpdateColor
+            props :-
+                        selectedTheme
+                        levelPosition
+                        
+                        
+            methods : -
+                
+                
+                    
+                    
+                    onWrongGuessUpdateColor
+                    onRightGuedsUpdateColor
+                    setTimeout --> componentdidmount
+                    setinterval
+                    clearInterval when level reaches to 8
+                    disable cell(true/false)
+                    gotoNextLevelAndUpdate
+                    goToStartingLevelAndUpdate
+                    updateCells    
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+Application
+
+        redirect to level 0
+        onWrongGuessUpdateColor
+        setTimeout
+        setinterval
+        clearInterval when level reaches to 8
+                        
+store 
+
+   UdateColorsWhenTimeout => call updatecolors in model (grey)
+   onWrongGuessUpdateColor => call updatecolors in model (red)
+   
+   
+   
+model
+
+    updateColors(color)
+    

@@ -14,7 +14,6 @@ class ThemeStore{
     
     @action.bound
     updateTheme(){
-        console.log('index' , this.selectedTheme)
         if(this.selectedTheme === "Light mode"){
             this.selectedTheme = "Dark mode";
         }

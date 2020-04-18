@@ -4,48 +4,60 @@ import CellModel from "../models/CellModel.js"
 
 
 class GameStore {
-    gridCells = []
-    hiddenCells = []
-    gridElements = []
-    level = 0
-    numOfCells = 3 * ( this.level + 1 )
-    
-    
+    @observable gridCells = []
+    @observable hiddenCells = []
+    @observable level = 0
+    @observable topLevel = 0
+    @observable numOfCells = 3
+    @observable randomNumber
     
     @action.bound
     updateLevel(){
-        this.level += 1;
-    }
-    
+        this.randomNumber = Math.random().toString()
+        this.level +=  1
+        this.numOfCells  +=  1
+        this.gridCells = []
+        this.hiddenCells = []
+        this.gridElements = []
+        this.updateHiddenCells()
+        this.updateGridElements()
+        this.updateCells()
+     }
     
     @action.bound
-    disableCells(){
-        
+    resetLevel(){
+        this.topLevel = (this.topLevel<this.level) ? this.level : this.topLevel
+         this.randomNumber = Math.random().toString()
+        this.level = 0
+        this.numOfCells = 3
+        this.gridCells = []
+        this.hiddenCells = []
+        this.gridElements = []
+        this.updateHiddenCells()
+        this.updateGridElements()
+        this.updateCells()
     }
+    
     
     @action.bound
     updateCells(){
-        let gridElements = this.gridElements
+    
+        let numOfCells = this.numOfCells
         
-        gridElements.forEach(element => {
-            let hiddenId = null
+        for(let i=0; i<numOfCells*numOfCells; i++){
+            let preSelectedCell = false
             this.hiddenCells.forEach(cell => {
-                (element===cell) ? hiddenId = element : undefined
-            })
-            
-            const newCell = new CellModel(hiddenId)
-            this.gridCells.push(newCell)
-        })
-        
-       
+                (i===cell) ? preSelectedCell = true : false
+            });
+            const newCell = new CellModel(preSelectedCell);
+            this.gridCells.push(newCell);
+        }
     }
+    
     
     @action.bound
     updateGridElements(){
-        let numOfCells = this.numOfCells;
-        for(let i=0; i<numOfCells*numOfCells; i++){
-            this.gridElements.push(i);
-        }
+        
     }
     
     
@@ -55,47 +67,23 @@ class GameStore {
         let hiddenCells = this.hiddenCells
         let numOfCells = this.numOfCells
         let max = numOfCells*numOfCells
-        for(let i = 1 ; i < 10; i++){
-            
-            number = Math.floor(Math.random() * Math.floor(max));
+        for(let i = 1 ; hiddenCells.length<numOfCells ; i++){
            let count = 0 ;
-            
-            (i===1) ? hiddenCells.push(number) : ''
-            
-            
-            
-            
-            hiddenCells.filter(cell => {
-                if(cell !== number){
-                    console.log('cell',cell,number,i)
-                    count += 1
-                }
-                
-                return null
-            })
-            
-            if(count === 0){
-                
-                hiddenCells.push(number)
-                console.log('count',hiddenCells)
-            }
-            //console.log(count)
-            
-            // if(count === 0){
-            //     hiddenCells.push(number)
-            // }
-            
-            
-            // if(hiddenCells.length === numOfCells){
-            //     i = 0;
-            // }
-            
            
+            number = Math.floor(Math.random() * Math.floor(max));
+           
+            hiddenCells.forEach(cell => {
+                return (cell === number) ? count+=1 : count
+            })
+            if(count === 0){
+                hiddenCells.push(number)
+                count = 0;
+            }
         }
-       
-        
+       this.hiddenCells = hiddenCells
     }
 }
+
 
 const GridStore = new GameStore;
 

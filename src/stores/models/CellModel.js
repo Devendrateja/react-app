@@ -2,25 +2,24 @@ import {observable} from "mobx"
 
 class CellModel {
     id
-    @observable hiddenCell
-    @observable initialColor
-    @observable finalColor
-    @observable onRightGuess
-    @observable onWrongGuess
-    @observable disabaled
+    @observable preSelectedCell
+    @observable isHidden
+    @observable disabled
     
-    constructor(hiddenCell){
+    constructor(preSelectedCell){
         this.id = Math.random().toString();
-        this.hiddenCell = hiddenCell;
-        this.initialColor = hiddenCell ? 'green' : 'grey';
-        this.finalColor = 'grey';
-        this.onWrongGuess = 'red';
-        this.rightGuess = 'green';
+        this.preSelectedCell = preSelectedCell;
+        this.isHidden = false
         this.disabled = true;
     }
     
+    hideCells = () => {
+        this.isHidden = (this.preSelectedCell === true) ?  true : false
+        
+    }
+    
     disableCell = (disabled) => {
-        this.disabled = disabled;
+        this.disabled = disabled
     }
 }
 

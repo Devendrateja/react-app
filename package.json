@@ -32,8 +32,6 @@
     "build": "npm run build:css react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "js:start": "npm run watch:css & react-app-rewired start",
     "js:build": "npm run build:css react-app-rewired build",
     "js:test": "react-app-rewired test",

@@ -18,12 +18,12 @@ class TodoFooter extends React.Component{
     render(){
         const {activeTodosCount} = this.props
         return(
-            <div>
+            <div className="flex flex-row w-full justify-between items-center h-16 p-1">
             <span>{activeTodosCount}items left</span>
             <div>
-            <span onClick={()=>this.onChangeSelectedFilter('All')}>All</span>
-            <span onClick={()=>this.onChangeSelectedFilter('Active')}>Active</span>
-            <span onClick={()=>this.onChangeSelectedFilter('Completed')}>Completed</span>
+            <span onClick={()=>this.onChangeSelectedFilter('All')} className="p-1 m-1">All</span>
+            <span onClick={()=>this.onChangeSelectedFilter('Active')} className="p-1 m-1">Active</span>
+            <span onClick={()=>this.onChangeSelectedFilter('Completed')} className="p-1 m-1">Completed</span>
             </div>
             <span onClick={this.onClearCompleted}>Clear Completed</span>
             </div>

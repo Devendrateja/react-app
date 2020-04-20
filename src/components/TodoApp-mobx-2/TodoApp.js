@@ -22,20 +22,39 @@ class TodoApp extends React.Component{
                 }
             }
         )
+        
+        
+    handleRetry = () => {
+        const {onAddTodo} = todoStores
+        onAddTodo();
+    }
+        
+        
     render(){
-          const {todos,onAddTodo, selectedFilter, onRemoveTodo, onChangeSelectedFilter, onClearCompleted, filterTodos, activeTodosCount } = todoStores
+          const {fetchTodos,todos,onAddTodo, selectedFilter, onRemoveTodo, onChangeSelectedFilter, onClearCompleted, filterTodos, activeTodosCount } = todoStores
           const filteredTodos = filterTodos
-        return (
-        <div>
-           <AddTodo onAddTodo={onAddTodo} onRemoveTodo={onRemoveTodo}/> 
-            <TodoList todos={filteredTodos}  onRemoveTodo={onRemoveTodo} />
-                {
-                    todos.length>0 && <TodoFooter activeTodosCount={activeTodosCount} selectedFilter={selectedFilter}  onChangeSelectedFilter={onChangeSelectedFilter}  onClearCompleted={onClearCompleted} />
-                }
-           </div>
-
-            
-            )
+          console.log('app lo length',todos.length)
+          if(window.navigator.onLine){
+            return (
+            <div className="flex flex-col justify-start items-center w-screen">
+                <div className="flex flex-col justify-start items-center  pt-10 w-6/12">
+                   <AddTodo onAddTodo={onAddTodo} onRemoveTodo={onRemoveTodo}/> 
+                    <TodoList todos={filteredTodos} fetchTodos={fetchTodos} onRemoveTodo={onRemoveTodo} />
+                        {
+                            todos.length>0 && <TodoFooter activeTodosCount={activeTodosCount} selectedFilter={selectedFilter}  onChangeSelectedFilter={onChangeSelectedFilter}  onClearCompleted={onClearCompleted} />
+                        }
+                   </div>
+               </div>
+                )
+          }
+          else if(!window.navigator.onLine){
+              return(
+                  <div className="flex justify-center items-center flex-col w-screen h-screen font-medium text-xl">
+                      <div className="m-2">Network Error</div>
+                      <button className="flex p-3 px-6 border border-blue-400 rounded-sm border-solid  m-2 font-semibold bg-blue-500 text-white" onClick={this.handleRetry}>Retry</button>
+                  </div>
+                  )
+          }
     }
 }
 

@@ -14,7 +14,7 @@ class Todo {
 
     @action.bound
     onUpdateTodoTitle(title){
-        this.title = title;
+    this.title = title;
     }
     
     
@@ -22,8 +22,6 @@ class Todo {
     onCompleteTodo(resultChecked){
         this.isCompleted = resultChecked
     }
-    
-    
     
 }
 

@@ -23,7 +23,6 @@ class CountriesDashhBoardApp extends React.Component {
     async getCountries(){
         const data = await fetch('https://restcountries.eu/rest/v2/all')
         const countriesData = await data.json()
-
         this.setState({countries : countriesData})
     }
 

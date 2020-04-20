@@ -1,3 +1,4 @@
+/*global fetch*/
 import {observable,action,computed} from 'mobx';
 
 import Todo from "../models/Todo"
@@ -8,6 +9,18 @@ class TodoStores {
     @observable selectedFilter = 'All';
 
     
+    @action.bound 
+    async fetchTodos(){
+        const data = await fetch('https://jsonplaceholder.typicode.com/todos')
+         const response = await data.json()
+        let count = 0
+        response.forEach(todo => {
+            if(count<4){
+            this.onAddTodo(todo.title,todo.completed);
+            count += 1
+            }
+        })
+    }
     
    @action.bound 
     onAddTodo(title,isChecked){
@@ -39,7 +52,8 @@ class TodoStores {
      get activeTodosCount(){
          let count = 0
          this.todos.forEach(todo => {
-            if (todo.isCompleted === false){
+            if (!todo.isCompleted ){
+                console.log(todo)
                 count += 1
             }
         });
@@ -71,7 +85,6 @@ class TodoStores {
             default:
                 filteredTodo = [...this.todos];
         }
-        
         
         return filteredTodo;
         

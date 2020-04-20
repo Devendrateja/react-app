@@ -26,8 +26,13 @@ class Addtodo extends React.Component{
         event.preventDefault();
         const addTodo = this.props.onAddTodo
         const todo = this.todoTitle
+        if(todo !== ''){
+            addTodo(todo,false)
+        }
+        else{
+            alert('dude! your task should not be an empty one ')
+        }
         
-        addTodo(todo,false)
         
         this.todoTitle = ''
     }
@@ -40,11 +45,14 @@ class Addtodo extends React.Component{
     
     
     render(){
+        
+        
+        
      
         return (
             
-            <form onSubmit={this.onAddTodo}>
-                <input className='border-solid border-gray-400' value={this.todoTitle} onChange={this.onChangeInput} />
+            <form onSubmit={this.onAddTodo} className="w-full">
+                <input placeholder="what needs to be done" className='w-full text-3xl border-solid border-gray-400 border bg-gray-200' value={this.todoTitle} onChange={this.onChangeInput} />
             </form>
             
             )

@@ -32,27 +32,19 @@ class Addtodo extends React.Component{
         else{
             alert('dude! your task should not be an empty one ')
         }
-        
-        
         this.todoTitle = ''
     }
     
     @action.bound
     onChangeInput(event){
-        
         this.todoTitle = event.target.value
     }
     
     
     render(){
-        
-        
-        
-     
         return (
-            
-            <form onSubmit={this.onAddTodo} className="w-full">
-                <input placeholder="what needs to be done" className='w-full text-3xl border-solid border-gray-400 border bg-gray-200' value={this.todoTitle} onChange={this.onChangeInput} />
+            <form onSubmit={this.onAddTodo} className="flex flex-col text-2xl mt-4 w-9/12 shadow-lg border border-solid border-red-400">
+                <input className="p-2" placeholder="what needs to be done" value={this.todoTitle} onChange={this.onChangeInput} />
             </form>
             
             )

@@ -1,21 +1,27 @@
 import React from "react"
 
 import {observable,action,reaction} from 'mobx';
-import {observer} from 'mobx-react';
+import {observer, inject} from 'mobx-react';
 
-//import Todo from "../../stores/models/Todo"
-import todoStores from "../../stores/TodoStores/TodoStores"
+import NoDataView from "../common/NoDataView"
+import LoadingWrapperWithFailure from "../common/LoadingWrapperWithFailure"
 
 import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"
 import TodoFooter from "./TodoFooter"
 
-
+@inject('todoStore')
 @observer
 class TodoApp extends React.Component{
     
+    componentDidMount(){
+        const {getTodosAPI} = this.props.todoStore
+        getTodosAPI()
+    }
+    
+    
     addTodoReaction = reaction (
-            () => todoStores.activeTodosCount,
+            () => this.props.activeTodosCount,
             (count) => {
                 if(count === 0){
                 alert('Congratulations')
@@ -23,38 +29,51 @@ class TodoApp extends React.Component{
             }
         )
         
+    
+    
+    renderSuccessUI = observer(() => {
+        const {onRemoveTodo,filterTodos,todos,getTodoListAPIError,getTodoListAPIStatus,APIErrorStatus,getTodosAPI } = this.props.todoStore
+        const filteredTodos = filterTodos
         
-    handleRetry = () => {
-        const {onAddTodo} = todoStores
-        onAddTodo();
-    }
+        if(todos.length === 0){
+         return <NoDataView />   
+        }
         
         
+        return (
+                <div className="flex flex-row justify-center items-center w-9/12">
+                    <TodoList todos={filteredTodos}
+                    onRemoveTodo={onRemoveTodo} APIErrorStatus={APIErrorStatus} 
+                    getTodoListAPIStatus={getTodoListAPIStatus} getTodosAPI={getTodosAPI} 
+                    getTodoListAPIError={getTodoListAPIError} 
+                    />
+                </div>)       
+                
+    })
+
+
     render(){
-          const {fetchTodos,todos,onAddTodo, selectedFilter, onRemoveTodo, onChangeSelectedFilter, onClearCompleted, filterTodos, activeTodosCount } = todoStores
-          const filteredTodos = filterTodos
-          console.log('app lo length',todos.length)
-          if(window.navigator.onLine){
-            return (
-            <div className="flex flex-col justify-start items-center w-screen">
-                <div className="flex flex-col justify-start items-center  pt-10 w-6/12">
-                   <AddTodo onAddTodo={onAddTodo} onRemoveTodo={onRemoveTodo}/> 
-                    <TodoList todos={filteredTodos} fetchTodos={fetchTodos} onRemoveTodo={onRemoveTodo} />
+          const {todos,onAddTodo,getTodosAPI, getTodoListAPIStatus, getTodoListAPIError, selectedFilter, onRemoveTodo, onChangeSelectedFilter, onClearCompleted, filterTodos, activeTodosCount } = this.props.todoStore
+          
+          return(
+        
+                <div className="flex flex-col justify-center items-center w-screen">
+                    <div className="flex flex-col justify-center items-center w-9/12 p-4 border border-red-200">
+                        <div className="text-6xl font-thin font-sans text-red-300">todos</div>
+                        <AddTodo onAddTodo={onAddTodo} onRemoveTodo={onRemoveTodo}/>
+                        <LoadingWrapperWithFailure  
+                            apiError={getTodoListAPIError}
+                            apiStatus={getTodoListAPIStatus} 
+                            renderSuccessUI={this.renderSuccessUI}
+                            onRetryClick={getTodosAPI}
+                        />
                         {
                             todos.length>0 && <TodoFooter activeTodosCount={activeTodosCount} selectedFilter={selectedFilter}  onChangeSelectedFilter={onChangeSelectedFilter}  onClearCompleted={onClearCompleted} />
                         }
-                   </div>
-               </div>
-                )
-          }
-          else if(!window.navigator.onLine){
-              return(
-                  <div className="flex justify-center items-center flex-col w-screen h-screen font-medium text-xl">
-                      <div className="m-2">Network Error</div>
-                      <button className="flex p-3 px-6 border border-blue-400 rounded-sm border-solid  m-2 font-semibold bg-blue-500 text-white" onClick={this.handleRetry}>Retry</button>
-                  </div>
-                  )
-          }
+                            
+                    </div>  
+                </div>
+            )
     }
 }
 

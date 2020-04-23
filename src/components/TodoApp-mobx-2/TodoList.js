@@ -1,27 +1,15 @@
 import React from "react"
 import {observer} from 'mobx-react';
-import { FaTruckLoading } from "react-icons/fa";
-
 import Todo from "./Todo"
 
 @observer
 class TodoList extends React.Component{
-    
-    isFetched = false
-    
-    componentDidMount(){
-        const {fetchTodos} = this.props
-        this.isFetched = true
-        let fetchedData = fetchTodos()
-        
-    }
-    
+
     
     render(){
-        const {todos, onRemoveTodo} = this.props
-        if(this.isFetched){
+        const {getTodosAPI, todos, onRemoveTodo, getTodoListAPIError, getTodoListAPIStatus} = this.props
             return(
-                <div className="flex flex-col justify-center items-center  w-full">
+                <div className="flex flex-col w-full">
                 {
                     todos.map(eachTodo => {
                         return (
@@ -32,19 +20,7 @@ class TodoList extends React.Component{
                 </div>
                 )
         }
-        else if(todos.length === 0 && this.isFetched){
-            return(
-                <div>No Data Found !</div>
-                )
-        }
-        else{
-            return(
-                <div className="pt-10">
-                    <FaTruckLoading />
-                </div>
-            )
-        }
-    }
+
 }
 
 

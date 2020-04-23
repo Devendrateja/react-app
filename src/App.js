@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import { Provider } from "mobx-react"
 import HomePage from "./components/HomePage/index.js";
 import Page1 from "./components/Page1";
 import "./App.css";
@@ -25,13 +26,14 @@ import {observable} from 'mobx';
 // import {configure} from "mobx";
 import themeStore from "./stores/ThemeStore/"
 
-
-
+import UsersPage from "./components/UsersPage"
+import stores from "./stores"
 
 class App extends React.Component {
   
   render(){
   return (
+    <Provider {...stores}>
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/counter-page">
@@ -71,11 +73,13 @@ class App extends React.Component {
         <Route exact path="/grid-game">
             <GridMemoryGame />
         </Route>
+        <Route path="/userspage" component = { UsersPage }/>
         <Route path="/">
           <HomePage />
         </Route>
       </Switch>
     </Router>
+    </Provider>
   );
   }
 };

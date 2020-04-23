@@ -27,15 +27,16 @@ class Todo extends React.Component{
         event.preventDefault()
     }
     
-    
+
+
     render(){
         const {todo} = this.props
-        console.log('todo render')
+        let textDecor = todo.isCompleted ? 'line-through' : ''
         return(
-            <form key={todo.id} onSubmit={this.handleOnSubmit} className="flex flex-row justify-center items-center w-full text-2xl">
-                <input className="p-3 m-1 rounded-full" name={todo.id} type="checkbox" defaultChecked={todo.isCompleted}  onChange={this.onCompleteTodo}/>
-                <input className="flex-grow m-1" onChange={this.onUpdateTodoTitle} defaultValue={todo.title} disabled={todo.isCompleted}/>
-                <input className="font-bold text-RED p-3 m-1 rounded-full" name={todo.id} onClick={this.onRemoveTodo} type="button" defaultValue="x"/>
+            <form key={todo.id} onSubmit={this.handleOnSubmit} className="flex flex-row p-1 text-2xl justify-center border-b border-red-200 items-center w-full">
+                <input className="m-1 rounded-full p-3 border font-thin border-red-200" name={todo.id} type="checkbox" defaultChecked={todo.isCompleted}  onChange={this.onCompleteTodo}/>
+                <input className={`m-1 flex-grow rounded-none p-1 ${textDecor}`} onChange={this.onUpdateTodoTitle} defaultValue={todo.title} disabled={todo.isCompleted}/>
+                <input className="m-1 border border-red-200 text-red-300 rounded-full text-lg px-2 py-0 font-thin " name={todo.id} onClick={this.onRemoveTodo} type="button" defaultValue="x"/>
             </form>
             )
     }

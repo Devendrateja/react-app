@@ -2,6 +2,7 @@ import React from "react"
 
 import {observable,action,reaction} from 'mobx';
 import {observer, inject} from 'mobx-react';
+import { Redirect } from "react-router-dom";
 
 import NoDataView from "../common/NoDataView"
 import LoadingWrapperWithFailure from "../common/LoadingWrapperWithFailure"
@@ -10,10 +11,14 @@ import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"
 import TodoFooter from "./TodoFooter"
 
-@inject('todoStore')
+
+
+import UserLoginPage from "../UserLoginPage"
+
+@inject('todoStore','auxStore')
 @observer
 class TodoApp extends React.Component{
-    
+   // @observable log = false
     componentDidMount(){
         const {getTodosAPI} = this.props.todoStore
         getTodosAPI()
@@ -50,11 +55,25 @@ class TodoApp extends React.Component{
                 </div>)       
                 
     })
+    
+    
+    goToLoginPage = () => {
+        //this.log = true
+        return (
+                <UserLoginPage/>
+            )
+    }
 
 
     render(){
           const {todos,onAddTodo,getTodosAPI, getTodoListAPIStatus, getTodoListAPIError, selectedFilter, onRemoveTodo, onChangeSelectedFilter, onClearCompleted, filterTodos, activeTodosCount } = this.props.todoStore
+          const {isUserloggedIn, onHandleUserLoggingDetails} = this.props.auxStore
           
+          if(!isUserloggedIn){
+              return this.goToLoginPage()
+          }
+          
+          console.log('aux store in todo app',this.props.auxStore.isUserloggedIn)
           return(
         
                 <div className="flex flex-col justify-center items-center w-screen">

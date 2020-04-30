@@ -1,0 +1,1 @@
+export const PRODUCTS_PAGE_PATH = "/products-page";

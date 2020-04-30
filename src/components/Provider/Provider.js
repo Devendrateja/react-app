@@ -4,23 +4,17 @@ import "./provider.css"
 
 class ProviderExample extends Component {
   
-  backgroundcolor = () => {
-    
+  handleHostMessage=()=>{
+    console.log(1)
+    return <div>item is added to your cart</div>
   }
   
-  handleClick = () => {
-    
-  }
   
-  render(){
-    return (
-      <div className="outer-div">
-          <div onClick={this.handleclick}>
-          
-          </div>
-      </div>
-      )
-  }
+ render(){
+   return(
+     <button onClick={this.handleHostMessage}>add host message</button>
+     )
+ }
   
 }
 

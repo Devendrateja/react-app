@@ -19,7 +19,7 @@ class CheckoutButton extends React.Component{
         const disable = noOfProductsInCart ? false : true
         
         return(
-            <button onClick={this.clearCart} disabled={disable}>CheckoutButton</button>
+            <button className="flex justify-center items-center w-full border-black font-semibold  p-2" onClick={this.clearCart} disabled={disable}>CheckoutButton</button>
             )
     }
 }

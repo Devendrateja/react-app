@@ -3,44 +3,59 @@ import styled from "@emotion/styled"
 
 
 
+const CartBody = styled.div`${tw`flex flex-row  w-6/12 h-full z-10`}
+                    position:fixed;
+                    top:0px;
+                    right:0px;
+                    `
+
+
+
 const  ProductCartContainer = styled.div `
         ${tw`
+        flex flex-col justify-start w-full  items-center text-white bg-gray-900`}
+    
+        `
         
-        `}   
-    `
- 
-const NoOfProducts = styled.div`${tw`absolute mx-1`}
+        
+const NoOfProducts = styled.div`${tw`absolute `}
+                        margin-left:3px;
+                        padding-bottom:2px;
                         font-size:10px;`
  
  
-const ShowCart = styled.div`${tw`flex justify-center items-center absolute text-4xl border p-2`}
+const ShowCart = styled.div`${tw`flex justify-center items-center absolute bg-gray-900 text-white text-4xl border p-2`}
                 position:fixed;
                 top:0px;
                 right:0px;`
 
 
-const CartIcon = styled.div`${tw ``}`
 
 
-const ProductBody = styled.div`${tw``}`
 
 const Container = styled.div`${tw`flex absolute`}`
 
 
-const HideCart = styled.div`${tw``}`
+const HideCart = styled.button`${tw`flex justify-center items-center text-white text-2xl bg-gray-900 `} width:50px; height:60px;`
 
-const CartHead = styled.div`${tw``}`
-
-
-const CheckoutDetails = styled.div`${tw` `}`
+const CartHead = styled.div`${tw`flex justify-center items-center relative text-4xl  m-1 p-2`} `
 
 
 
-const List = styled.div`${tw``}`
+const CheckoutDetails = styled.div`${tw` w-full h-24  p-4 bg-gray-900`}
+                        
+                        `
+
+
+const List = styled.div`${tw`flex flex-col w-full`} height:80%;`
+
+
+
+const CartTop = styled.div`${tw`flex flex-row w-full justify-center items-center p-8`}height:50px; `
 
 
     
-export {ProductCartContainer,List,ShowCart,ProductBody,HideCart,Container,NoOfProducts, CartIcon, CartHead, CheckoutDetails}
+export {ProductCartContainer,List,ShowCart,CartBody,HideCart,Container,NoOfProducts ,CartHead, CartTop, CheckoutDetails}
 
 
 
@@ -96,3 +111,8 @@ export {ProductCartContainer,List,ShowCart,ProductBody,HideCart,Container,NoOfPr
 
 
 // const List = styled.div`${tw`flex flex-col overflow-y-auto w-full`} height:65%`
+
+
+/*position:fixed;
+                        bottom:0;
+                        width:100%;*/

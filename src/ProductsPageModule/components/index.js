@@ -15,7 +15,7 @@ import LoadingWrapperWithFailure from "../../components/common/LoadingWrapperWit
 import Header from "./Header"
 import ProductList from "./ProductList/index"
 import SizeFilter from "./SizeFilter"
-import { CartNavigator,CartContainer } from "./styledComponents.js"
+import { CartNavigator,CartContainer,Body , SignOutButton,SignOutEl} from "./styledComponents.js"
 import {FiShoppingCart} from "react-icons/fi" 
 
 
@@ -56,14 +56,13 @@ class ProductsPage extends React.Component{
         const {createProduct,products,onSelectSize,onChangeSortBy,getProductListAPIStatus,getProductListAPIError,getProductList} = this.props.productStore   
         const { cartProductList, onRemoveCartItem, getProductDetailsById,totalCartAmount, clearCart,noOfProductsInCart } = this.props.cartStore
         const totalNumberOfProductsDisplayed = products.length
-  //      this.cartList = cartProductList
        
 
        
         const access_token = getAccessToken()
         if(access_token){
         return (
-            <div className="flex flex-col border w-screen relative">
+            <Body>
                
                 <CartContainer>
                     <ProductCart cartProductList={cartProductList}
@@ -76,14 +75,14 @@ class ProductsPage extends React.Component{
                     />
                 </CartContainer>
               
-                <div className="flex  border">
-                   <button data-testid="sign-out-button"  onClick={this.signOut} className="p-1 m-4 border border-black border-solid">Sign out</button>
-                </div>
+                <SignOutEl>
+                   <SignOutButton data-testid="sign-out-button"  onClick={this.signOut}>Sign out</SignOutButton>
+                </SignOutEl>
                
                 <div className="flex">
-                    <div className="border p-1 m-4 w-1/4">
+                    <sizeFilterEl>
                         <SizeFilter onSelectSize={onSelectSize} />
-                    </div>
+                    </sizeFilterEl>
                  
                     <div className="flex flex-col my-4 w-3/4 border">
                         <Header onChangeSortBy={onChangeSortBy} totalNumberOfProductsDisplayed={totalNumberOfProductsDisplayed} />
@@ -96,7 +95,7 @@ class ProductsPage extends React.Component{
                     </div>
                     
                 </div>
-            </div>
+            </Body>
            )
         }
         else{

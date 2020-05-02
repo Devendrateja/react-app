@@ -1,3 +1,5 @@
+
+
 import React from "react"
 import {observable} from "mobx"
 import { observer } from "mobx-react"
@@ -16,7 +18,6 @@ class CartItem extends React.Component{
     render(){
         const { product, getProductDetailsById } = this.props
         const item = getProductDetailsById(product.productId)
-        //console.log('cart item' , product, item)
         return (
             <CartProduct>
                 <CartImage src={item.image} />
@@ -25,10 +26,10 @@ class CartItem extends React.Component{
                     <div>{item.style}</div>
                     <div>qty: {product.quantity}</div>
                 </CartProductDetails>
-                <CartProductDetailsAdditional>
+            <CartProductDetailsAdditional>
                     <div data-testid='remove-cart-item' onClick={this.onRemoveCartItem}>X</div>
                     <div>{item.currencyFormat} {item.price}</div>
-                </CartProductDetailsAdditional>
+            </CartProductDetailsAdditional>
             </CartProduct>
             )
     }

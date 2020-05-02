@@ -11,7 +11,10 @@ class SubTotal extends React.Component{
         const { totalCartAmount } = this.props
        
         return(
-            <div>Subtotal {totalCartAmount}</div>
+            <div className="flex flex-row w-full my-2 font-semibold justify-between ">
+                <div>Subtotal</div>
+                <div>{totalCartAmount}</div>
+            </div>
             )
     }
 }

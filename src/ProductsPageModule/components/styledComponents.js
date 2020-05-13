@@ -8,7 +8,7 @@ export const CartContainer = styled.div`${tw`absolute`}`
 export const Body = styled.div`${tw`flex flex-col border w-screen relative`}`
 
 
-export const sizeFilterEl = styled.div`${tw`border p-1 m-4 w-1/4`}`
+export const SizeFilterEl = styled.div`${tw`border p-1 m-4 w-1/4`}`
 
 
 

@@ -1,5 +1,3 @@
-
-
 import React from "react"
 import {observable} from "mobx"
 import { observer } from "mobx-react"
@@ -8,15 +6,9 @@ import {CartImage, CartProduct,CartProductDetails, CartProductDetailsAdditional 
 @observer
 class CartItem extends React.Component{
     
-    onRemoveCartItem=()=> {
-        const { onRemoveCartItem, product } = this.props
-        onRemoveCartItem(product)
-    }
-    
-    
     
     render(){
-        const { product, getProductDetailsById } = this.props
+        const { product, getProductDetailsById, onRemoveCartItem } = this.props
         const item = getProductDetailsById(product.productId)
         return (
             <CartProduct>
@@ -27,7 +19,7 @@ class CartItem extends React.Component{
                     <div>qty: {product.quantity}</div>
                 </CartProductDetails>
             <CartProductDetailsAdditional>
-                    <div data-testid='remove-cart-item' onClick={this.onRemoveCartItem}>X</div>
+                    <div data-testid='remove-cart-item' onClick={onRemoveCartItem}>X</div>
                     <div>{item.currencyFormat} {item.price}</div>
             </CartProductDetailsAdditional>
             </CartProduct>

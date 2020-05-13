@@ -1,1 +1,1 @@
-export const PRODUCTS_PAGE_PATH = "/products-page";
+export const E_COMMERCE_PRODUCTS_PAGE_PATH = "/ecommerce-store/products/";

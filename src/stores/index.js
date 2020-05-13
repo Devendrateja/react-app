@@ -43,5 +43,4 @@ export default {
   authStore,
   productStore,
   cartStore
- 
 }

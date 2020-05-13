@@ -9,13 +9,13 @@ import {HeaderEl } from "./styledComponents.js"
 class Header extends React.Component{
         
     render(){
-        const { totalNumberOfProductsDisplayed, onChangeSortBy , products} = this.props
+        const { totalNumberOfProductsDisplayed, onChangeSortBy } = this.props
        return(
             <HeaderEl>
                 <div>{totalNumberOfProductsDisplayed} product(s) found</div>
                 <div>
                     <span className="px-1">Sort price by:</span>
-                    <ProductSort onChangeSortBy={onChangeSortBy} products={products}/>
+                    <ProductSort onChangeSortBy={onChangeSortBy}/>
                 </div>
             </HeaderEl>
             )

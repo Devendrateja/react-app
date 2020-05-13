@@ -7,9 +7,7 @@ const XSXL = styled.span`
            flex justify-center items-center  rounded-full m-1  border border-solid text-xs h-10 w-10
     `}
     background-color:${props => props.status ? 'black' : 'white'};
-    color:${props => props.status ? 'white' : 'black'};
-  
-`
+    color:${props => props.status ? 'white' : 'black'};`
 
 
 const SML = styled.span`

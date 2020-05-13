@@ -6,26 +6,16 @@ import { CartProductsList , EmptyCart} from "./styledComponents"
 
 @observer
 class CartList extends React.Component{
-    
-    renderProductsList = () =>{
-        const {cartProductList,onRemoveCartItem,getProductDetailsById} = this.props
-        let arrayOfProducts = cartProductList.map(product => {
-                            return <CartItem key={product.productId} product={product} onRemoveCartItem={onRemoveCartItem} getProductDetailsById={getProductDetailsById}/>
-                        })
-        return arrayOfProducts
-    }
-    
-    
-    
+
     render(){
         
-        const { cartProductList, onRemoveCartItem, getProductDetailsById } = this.props
+        const { cartProductList, onRemoveCartItem, getProductDetailsById , renderProductsList } = this.props
         console.log('cart List',cartProductList)
         if(cartProductList.length){
             return (
                 <CartProductsList className="overflow-y-auto">
                     {
-                       this.renderProductsList()
+                       renderProductsList()
                     }
                 </CartProductsList>
                 )
@@ -39,8 +29,3 @@ class CartList extends React.Component{
 }
 
 export default CartList
-
-
-//  cartProductList.map(product => {
-//                             return <CartItem key={product.productId} product={product} onRemoveCartItem={onRemoveCartItem} getProductDetailsById={getProductDetailsById}/>
-//                         })

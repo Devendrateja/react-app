@@ -29,9 +29,7 @@ class ProductCart extends React.Component{
     }
     
     render(){
-        const { products,cartProductList, onRemoveCartItem, getProductDetailsById,totalCartAmount, clearCart, noOfProductsInCart } = this.props
-        console.log('products cart ', cartProductList)
-        
+        const { products,cartProductList, onRemoveCartItem, getProductDetailsById,totalCartAmount, clearCart, noOfProductsInCart , renderProductsList} = this.props
         
         
         return (
@@ -58,6 +56,7 @@ class ProductCart extends React.Component{
                                             getProductDetailsById={getProductDetailsById}
                                             onRemoveCartItem={onRemoveCartItem}
                                             cartProductList={cartProductList}
+                                            renderProductsList={renderProductsList}
                             />
                             
                             <CheckoutDetails>
@@ -69,8 +68,6 @@ class ProductCart extends React.Component{
                     </CartBody>
                     : null
             }
-            
-
         </div>
             )
        
@@ -81,30 +78,3 @@ class ProductCart extends React.Component{
 export default ProductCart
 
                    
-            
-            // {
-            //  this.showProductCart ?
-            //     <ProductBody>
-            //                 <HideCart data-testid='cart-close-button' onClick={this.displayCart}>x</HideCart>
-            //                 <ProductCartContainer>
-            //                         <CartHead>
-            //                             <CartIcon>
-            //                                 <FiShoppingCart/> 
-            //                             </CartIcon>
-            //                             <NoOfProducts>{noOfProductsInCart}</NoOfProducts>
-            //                         </CartHead>
-            //                         <List>
-            //                             <CartList cartProductList={cartProductList} 
-            //                                       getProductDetailsById={getProductDetailsById}
-            //                                       onRemoveCartItem={onRemoveCartItem}
-            //                                       cartProductList={cartProductList}
-            //                             />
-            //                         </List>
-                                    
-                                    // <CheckoutDetails>
-                                    //     <SubTotal totalCartAmount={totalCartAmount}/>
-                                    //     <CheckoutButton clearCart={clearCart} noOfProductsInCart={noOfProductsInCart}/>
-                                    // </CheckoutDetails>
-            //                 </ProductCartContainer>
-            //     </ProductBody>  : null
-            // }

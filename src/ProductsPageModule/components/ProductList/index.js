@@ -13,7 +13,7 @@ class ProductList extends React.Component{
    
     render(){
         
-        const {products,createProduct, onClickAddToCart} = this.props
+        const {products,createProduct, onClickAddToCart, onClickAddToCartButton} = this.props
         
         return (
             <div className="flex flex-row flex-wrap">
@@ -21,7 +21,7 @@ class ProductList extends React.Component{
                 products.length !==0 && 
                     products.map((eachProduct) => {
                     const newProduct = createProduct(eachProduct)
-                      return <Product key={eachProduct.id} onClickAddToCart={onClickAddToCart} product={newProduct}/>
+                      return <Product key={eachProduct.id} product={newProduct} onClickAddToCartButton={onClickAddToCartButton}/>
                     })
             }
             </div>

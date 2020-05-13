@@ -33,7 +33,6 @@ class CartStore {
     
     @action.bound
     onRemoveCartItem(product){
-        console.log('onn remove',product)
         
         const updatedCartAfterRemoved = this.cartProductList.filter(eachProduct => {
             return eachProduct.productId !== product.productId
@@ -72,7 +71,7 @@ class CartStore {
             let qty = 0;
             let price = 0;
             qty = cartProduct.quantity 
-            this
+            
             productList.forEach(eachProduct =>{
                 if(eachProduct.id === cartProduct.productId){
                     price = ( eachProduct.price * qty )

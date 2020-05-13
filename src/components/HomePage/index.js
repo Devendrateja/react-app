@@ -4,6 +4,7 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import logo from "../../logo.svg";
 
+import {E_COMMERCE_PRODUCTS_PAGE_PATH} from "../../ProductsPageModule/constants/RouteConstants"
 
 @observer
 class HomePage extends React.Component{  
@@ -19,15 +20,6 @@ class HomePage extends React.Component{
   }
   
  render(){ 
- 
-  // if(!this.isUserLoggedIn){
-  //   return this.gotoLoginPage()
-  // }
- 
-  //let login = this.isUserLoggedIn ? 'Logout' : 'Login'
-  
-  
-  console.log('home page render')
   return (
     <div>
         <nav>
@@ -65,10 +57,10 @@ class HomePage extends React.Component{
               <Link key="login-page" to="/login-page">Login</Link>
             </div>
             <div>
-              <Link key="signin" to="/sign-in">Sign in</Link>
+              <Link key="signin" to="/ecommerce-store/sign-in/">Sign in</Link>
             </div>
             <div>
-              <Link key="header" to="/products-page">e-commerce</Link>
+              <Link key="header" to={E_COMMERCE_PRODUCTS_PAGE_PATH}>e-commerce</Link>
             </div>
         </nav>
       </div>

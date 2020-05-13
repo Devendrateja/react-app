@@ -35,7 +35,7 @@ class ProductStore {
     @action.bound
     getProductList(){
         const promise = this.productsAPIService.getProductsAPI()
-        bindPromiseWithOnSuccess(promise)
+        return bindPromiseWithOnSuccess(promise)
         .to(this.setProductListAPIStatus,this.setProductListAPIResponse)
         .catch(this.setProductListAPIError)
     }
@@ -50,6 +50,7 @@ class ProductStore {
     
     @action.bound
     setProductListAPIResponse(response){
+        console.log('response')
         this.productList = response
     }
     
@@ -73,7 +74,6 @@ class ProductStore {
     @action.bound
     onChangeSortBy(sortingType){
         this.sortBy = sortingType
-        
     }
     
     
@@ -145,15 +145,11 @@ class ProductStore {
          filteredProducts = sortedProducts
      }
     
-        return filteredProducts
+     return filteredProducts
     }
     
     
 }
 
 
-
 export default ProductStore;
-
-
-

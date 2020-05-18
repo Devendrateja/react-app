@@ -175,44 +175,44 @@ import styled from "@emotion/styled"
 
 
 
-@observer
-class Counter extends Component {
-  @observable count = 44;
-  @observable isCountChanged = false;
+// @observer
+// class Counter extends Component {
+//   @observable count = 44;
+//   @observable isCountChanged = false;
 
-  @action
-  onChangeCount = () => {
-       //console.log(this.count)
-      //this.isCountChanged = true;
-    this.count = this.count * 13;
-    this.count = this.count * 12;
-    this.count = this.count * 10;
-    this.count = this.count * 11;
-    this.count = this.count * 11;
-  }
+//   @action
+//   onChangeCount = () => {
+//       //console.log(this.count)
+//       //this.isCountChanged = true;
+//     this.count = this.count * 13;
+//     this.count = this.count * 12;
+//     this.count = this.count * 10;
+//     this.count = this.count * 11;
+//     this.count = this.count * 11;
+//   }
   
-  @computed get counter(){
-    console.log("computed");
-    return this.count;
-  }
+//   @computed get counter(){
+//     console.log("computed");
+//     return this.count;
+//   }
   
-  disoser = autorun(()=>{
-    console.log(this.count)
-  })
+//   disoser = autorun(()=>{
+//     console.log(this.count)
+//   })
   
 
-  render() {
-    console.log("render Counter");
-    return (
-      <div>
-        <p>Count: {this.counter}</p>
-        <button onClick={this.onChangeCount}>Change count</button>
-        <p>{this.isCountChanged ? "Count Changed" : ""}</p>
-      </div>
-    );
-  }
-}
-export default Counter;
+//   render() {
+//     console.log("render Counter");
+//     return (
+//       <div>
+//         <p>Count: {this.counter}</p>
+//         <button onClick={this.onChangeCount}>Change count</button>
+//         <p>{this.isCountChanged ? "Count Changed" : ""}</p>
+//       </div>
+//     );
+//   }
+// }
+// export default Counter;
 
 
 
@@ -343,4 +343,83 @@ export default Counter;
 // //     }
 // // }*/}
 
-//export default ProviderExample;
+//export default ProviderExample;import React from "react";
+
+// class ThemeStore {
+//   @observable selectedTheme = "dark";
+
+//   onChange() {
+//     console.log("onChange selectedTheme");
+//     if (this.selectedTheme === "dark") {
+//       this.selectedTheme = "light";
+//     } else {
+//       this.selectedTheme = "dark";
+//     }
+//   }
+// }
+
+// const themeStore = new ThemeStore();
+
+// @observer
+// class ProviderExample extends React.Component {
+//   onChange = () => {
+//     //const { onChange } = this.props.themeStore;
+//     console.log(this)
+//     this.props.themeStore.onChange();
+    
+//   }
+
+//   render() {
+//     const { selectedTheme } = this.props.themeStore;
+//     console.log("SelectedTheme:", selectedTheme);
+
+//     return <button onClick={this.onChange}>Change theme</button>;
+//   }
+// }
+
+
+// export default ProviderExample;
+
+
+
+
+function ListItem(props) {
+  console.log("new item");
+  return <li>{props.value}</li>;
+}
+
+class ProviderExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { numbers: [12, 34, 56, 23, 23, 23] };
+  }
+  renderListItems = () => {
+    const { numbers } = this.state;
+    return numbers.map((number, index) => (
+      <ListItem key={index} value={number} />
+    ));
+  };
+
+  addNumberToList = () => {
+    const { numbers } = this.state;
+    const newNumbers = numbers.slice();
+    newNumbers.push(numbers.length * 2);
+    
+    this.setState({
+      numbers: newNumbers,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <ul>{this.renderListItems()}</ul>
+        <button onClick={this.addNumberToList}>Add number</button>
+      </div>
+    );
+  }
+}
+
+
+export default ProviderExample;
+

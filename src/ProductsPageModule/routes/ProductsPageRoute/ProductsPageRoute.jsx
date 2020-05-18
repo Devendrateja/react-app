@@ -13,6 +13,7 @@ import { AddProductToastMessage } from "../../components/ToastMessages"
 import ProductsPage from "../../components"
 
 
+
 @inject("productStore", "cartStore")
 @observer
 class ProductsPageRoute extends React.Component{

@@ -19,12 +19,11 @@ import GridMemoryGame from "./components/GridMemoryGame/index"
 import UserLoginPage from "./components/UserLoginPage"
 import routes from "./AuthenticationModule/routes"
 import productsPageRoutes from "./ProductsPageModule/routes"
-
+import PracticeAdvancedConceptsRoute from "./common/routes/PracticeAdvancedConceptsRoute/PracticeAdvancedConceptsRoute"
 
 
 
 import {observable} from 'mobx';
-// import {configure} from "mobx";
 import themeStore from "./stores/ThemeStore/"
 
 import UsersPage from "./components/UsersPage"
@@ -78,6 +77,9 @@ class App extends React.Component {
         <Route  path="/login-page" component = { UserLoginPage }/>
            {routes}
            {productsPageRoutes}
+        <Route path="/practice-advanced-concepts">
+          <PracticeAdvancedConceptsRoute />
+        </Route>
         <Route path="/">
           <HomePage />
         </Route>

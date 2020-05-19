@@ -62,6 +62,9 @@ class HomePage extends React.Component{
             <div>
               <Link key="header" to={E_COMMERCE_PRODUCTS_PAGE_PATH}>e-commerce</Link>
             </div>
+            <div>
+              <Link  to="practice-advanced-concepts" >PracticeAdvancedConceptsRoute</Link>
+            </div>
         </nav>
       </div>
         

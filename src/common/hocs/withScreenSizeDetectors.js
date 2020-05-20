@@ -7,7 +7,11 @@ const WithScreenSizeDetectors = WrappedComponent => {
     
     @observer
     class ResizeComponent extends React.Component{
-        @observable size = ""
+        @observable size;
+        
+        componentDidMount(){
+            this.updateSize()
+        }
         
         updateSize = () => {
             if(window.innerWidth < 576){

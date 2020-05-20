@@ -1,8 +1,11 @@
 import React, { Component } from "react"
 import { observer } from "mobx-react"
 import { observable } from "mobx"
+import tw from "tailwind.macro"
+import styled from "@emotion/styled"
+
 import WithToggle from "../hocs/withToggle"
-import { EditorContainer,Input,EditButton,Span } from "./styledComponents"
+import { EditorContainer,EditorContainerHeading,Input,EditButton,Span } from "./styledComponents"
 
 @observer
 class ViewEditToggle extends React.Component {
@@ -16,12 +19,14 @@ class ViewEditToggle extends React.Component {
         const {toggleStatus,onToggle} = this.props
         return(
             <EditorContainer>
-                <h2>ViewEditToggle</h2>
-                {
-                    !toggleStatus ? <Span>{this.editValue}</Span>  : <Input onChange={this.updateText} type="text" toggleStatus={toggleStatus}  value={this.editValue} />  
-                }
-                
-                <EditButton onClick={onToggle}>{toggleStatus ? "cancel" : "Edit"}</EditButton>
+                <EditorContainerHeading>ViewEditToggle</EditorContainerHeading>
+                <div className="flex justify-center items-center" >
+                    {
+                        !toggleStatus ? <Span >{this.editValue}</Span>  : <Input onChange={this.updateText} type="text" toggleStatus={toggleStatus}  value={this.editValue} />  
+                    }
+                    
+                    <EditButton onClick={onToggle}>{toggleStatus ? "cancel" : "Edit"}</EditButton>
+                </div>
             </EditorContainer>
             )
     }

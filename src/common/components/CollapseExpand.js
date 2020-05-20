@@ -7,7 +7,7 @@ import { observer } from "mobx-react"
 import { observable } from "mobx"
 import WithToggle from "../hocs/withToggle"
 
-import { CollapseExpandContainer,Input,CollapseButton,Span } from "./styledComponents"
+import { CollapseExpandContainer,CollapseExpandHeading,ShoppingListContainer,ShoppingListText,ShoppingListcart,Input,CollapseButton,Span } from "./styledComponents"
 
 @observer
 class CollapseExpand extends React.Component{
@@ -17,17 +17,17 @@ class CollapseExpand extends React.Component{
         const {toggleStatus, onToggle} = this.props;
         return(
             <CollapseExpandContainer>
-                <h2>ViewEditToggle</h2>
-                <div className="flex items-start justify-center">
-                    <span className="m-4"> Sample shoping List:</span>
-                    <span className="flex flex-col justify-start items-center">
+                <CollapseExpandHeading>ColapseExpand</CollapseExpandHeading>
+                <ShoppingListContainer>
+                    <ShoppingListText> Sample shoping List:</ShoppingListText>
+                    <ShoppingListcart>
                         <CollapseButton onClick={onToggle}>{toggleStatus ? "Collapse" : "Expand" }</CollapseButton>
                         {
-                          toggleStatus ?    <div><div>Eggs</div>
-                            <div>Bread</div></div> : ""
+                          toggleStatus ?    <ShoppingListcart><div>Eggs</div>
+                            <div>Bread</div></ShoppingListcart> : ""
                         }
-                    </span>
-                </div>
+                    </ShoppingListcart>
+                </ShoppingListContainer>
             </CollapseExpandContainer>
             )
     }

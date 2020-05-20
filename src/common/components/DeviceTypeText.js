@@ -3,6 +3,8 @@ import { observer } from "mobx-react"
 import { observable } from "mobx"
 import WithScreenSizeDetectors from "../hocs/withScreenSizeDetectors"
 
+import { DeviceTypeContainer, DeviceTypeTextHeading } from "./styledComponents"
+
 class DeviceTypeText extends React.Component {
     
     updateSize = () => {
@@ -13,13 +15,14 @@ class DeviceTypeText extends React.Component {
     componentDidMount(){
         window.addEventListener("resize", this.updateSize)
     }
+    
     render(){
         const { size } = this.props
         return (
-            <div>
-                <h2>DeviceTypeText</h2>
+            <DeviceTypeContainer>
+                <DeviceTypeTextHeading>DeviceTypeText</DeviceTypeTextHeading>
                 <span>Device Type : {size}</span>
-            </div>
+            </DeviceTypeContainer>
             )
     }
 }
